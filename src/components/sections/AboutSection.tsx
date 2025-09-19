@@ -73,6 +73,22 @@ const AboutSection = () => {
           <div className="space-y-6">
             <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
               <h3 className="text-[1.7rem] font-semibold mb-4 text-accent">
+                Vision
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                To be a compassionate and skilled pilot and developer—using technology
+                not just for innovation, but as a tool to uplift communities, open 
+                opportunities, and restore dignity. I seek to glorify God through every 
+                line of code, every flight, and every act of service, rooted in excellence, 
+                integrity, and a listening heart. Whether in the skies or behind the screen, 
+                I want to be a vessel of hope and purpose—building systems that serve, 
+                platforms that empower, and a legacy that reflects Christ’s love and truth.
+              </p>
+
+            </Card>
+
+            <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
+              <h3 className="text-[1.7rem] font-semibold mb-4 text-accent">
                 My Mission
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
