@@ -1,7 +1,5 @@
 {
-  "name":     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
-    "preview": "vite preview"_react_shadcn_ts",
+  "name": "mellow-digital-spot",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,7 +12,7 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
