@@ -3,6 +3,53 @@ import { Card } from "@/components/ui/card";
 import personalPhoto from "@/assets/personalPhoto.jpg";
 
 const AboutSection = () => {
+  // Personal info (adjust values as you like)
+  const personal = {
+    // Use an ISO datetime so you can include exact birth hour
+    birthDateTime: '2004-09-26T01:40:00', // YYYY-MM-DDTHH:MM:SS (local time)
+    relationship: 'Engaged', // placeholder only                                                                                                     but its actually not a placeholder LOL
+    sex: 'M',
+    religion: 'Born Again Christian',
+  };
+
+  const calcAgeDetailed = (birthISO: string) => {
+    const now = new Date();
+    const birth = new Date(birthISO);
+
+    let years = now.getFullYear() - birth.getFullYear();
+    let months = now.getMonth() - birth.getMonth();
+    let days = now.getDate() - birth.getDate();
+    let hours = now.getHours() - birth.getHours();
+    let minutes = now.getMinutes() - birth.getMinutes();
+
+    if (minutes < 0) {
+      minutes += 60;
+      hours--;
+    }
+    if (hours < 0) {
+      hours += 24;
+      days--;
+    }
+    if (days < 0) {
+      // days in previous month
+      const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+      days += prevMonth.getDate();
+      months--;
+    }
+    if (months < 0) {
+      months += 12;
+      years--;
+    }
+
+    return { years, months, days, hours, minutes };
+  };
+
+  const formatBirthday = (birthISO: string) => {
+    const d = new Date(birthISO);
+    return d.toLocaleString(undefined, {
+      year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+    });
+  };
   const handlePortfolioClick = () => {
     // vercel portfolio Q bruh
     window.open("https://adriaandimate.vercel.app/", "_blank");
@@ -25,16 +72,16 @@ const AboutSection = () => {
           {/* Content */}
           <div className="space-y-6">
             <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-              <h3 className="text-2xl font-semibold mb-4 text-accent">
+              <h3 className="text-[1.7rem] font-semibold mb-4 text-accent">
                 My Mission
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Despite autism spectrum, the aim is to achieve the dream of becoming
                 an airline pilot while leveraging software engineering skills to make
                 a positive impact in the tech world, no matter how long it takes, or
                 whatever it will take.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 With God as my guide, I believe that with passion, perseverance,
                 and a lot of coffee, I can overcome any obstacle and reach for the skies.
                 Furthermore, I aim to use my programming skills to serve God and His people,
@@ -43,7 +90,7 @@ const AboutSection = () => {
             </Card>
 
             <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-              <h3 className="text-2xl font-semibold mb-4 text-accent">
+              <h3 className="text-[1.7rem] font-semibold mb-4 text-accent">
                 Core Values
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -54,8 +101,8 @@ const AboutSection = () => {
                   { title: "Growth", desc: "Continuous Improvement and Development" }
                 ].map((value, index) => (
                   <div key={index} className="text-center p-4 rounded-lg bg-secondary/30">
-                    <div className="font-semibold text-foreground">{value.title}</div>
-                    <div className="text-sm text-muted-foreground">{value.desc}</div>
+                    <div className="text-base font-semibold text-foreground">{value.title}</div>
+                    <div className="text-[1.05rem] text-muted-foreground">{value.desc}</div>
                   </div>
                 ))}
               </div>
@@ -132,6 +179,29 @@ const AboutSection = () => {
                   <p className="text-sm text-muted-foreground italic">
                     "Blessed be the Lord, my rock, who trains my hands for war and my fingers for battle" - Psalm 144:1
                   </p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Personal Info */}
+            <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
+              <div className="text-center space-y-6">
+                <h4 className="text-xl font-semibold text-foreground">Personal Info</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: '🧭', title: 'Age', value: `${(() => { const a = calcAgeDetailed(personal.birthDateTime); return `${a.years} yr ${a.months} mo`; })()}` },
+                    { icon: '🎂', title: 'Birthday', value: formatBirthday(personal.birthDateTime) },
+                    { icon: '❤️', title: 'Relationship', value: personal.relationship },
+                    { icon: '⚧', title: 'Sex', value: personal.sex },
+                    { icon: '✝️', title: 'Religion', value: personal.religion },
+                    { icon: '📚', title: 'Studying?', value: 'Yes' },
+                  ].map((item, idx) => (
+                    <div key={idx} className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300 text-left">
+                      <div className="text-2xl mb-2">{item.icon}</div>
+                      <div className="text-sm font-medium text-foreground">{item.title}</div>
+                      <div className="text-xs text-muted-foreground">{item.value}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </Card>
