@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aviation-inspired design system with sunset colors */
+
+@layer base {
+  :root {
+    --background: 220 20% 5%;
+    --foreground: 39 87% 96%;
+
+    --card: 220 18% 8%;
+    --card-foreground: 39 87% 96%;
+
+    --popover: 220 18% 8%;
+    --popover-foreground: 39 87% 96%;
+
+    --primary: 220 50% 15%;
+    --primary-foreground: 39 87% 96%;
+
+    --secondary: 220 25% 12%;
+    --secondary-foreground: 39 87% 96%;
+
+    --muted: 220 20% 10%;
+    --muted-foreground: 39 30% 70%;
+
+    --accent: 24 95% 53%;
+    --accent-foreground: 220 50% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 24 95% 53%;
+
+    --radius: 0.75rem;
+
+    /* Aviation theme colors */
+    --aviation-blue: 220 50% 15%;
+    --aviation-light: 220 30% 25%;
+    --sunset-orange: 24 95% 53%;
+    --sunset-purple: 280 80% 40%;
+    --sky-blue: 210 100% 70%;
+    --glass-bg: 220 20% 8%;
+    
+    /* Gradients */
+    --gradient-sunset: linear-gradient(135deg, hsl(24 95% 53%), hsl(280 80% 40%));
+    --gradient-aviation: linear-gradient(135deg, hsl(220 50% 15%), hsl(220 30% 25%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 5% / 0.9), hsl(220 30% 10% / 0.8));
+    --gradient-glass: linear-gradient(135deg, hsl(220 20% 8% / 0.1), hsl(220 20% 12% / 0.2));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(24 95% 53% / 0.3);
+    --shadow-card: 0 20px 40px hsl(220 50% 5% / 0.3);
+    --shadow-elevation: 0 10px 25px hsl(220 50% 5% / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Unified theme - no separate dark mode for aviation aesthetic */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
