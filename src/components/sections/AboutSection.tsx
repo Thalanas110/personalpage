@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import personalPhoto from "@/assets/personal-photo-placeholder.jpg";
+import personalPhoto from "@/assets/personalPhoto.jpg";
 
 const AboutSection = () => {
   const handlePortfolioClick = () => {
-    // Replace with your actual portfolio URL
+    // vercel portfolio Q bruh
     window.open("https://adriaandimate.vercel.app/", "_blank");
   };
 
@@ -16,8 +16,8 @@ const AboutSection = () => {
             About Me
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Every great journey begins with a single flight. Mine started with a passion for 
-            innovation and a commitment to excellence.
+            Every aspiring pilot has a story. With God, passion, and perseverance,
+            here's mine.
           </p>
         </div>
 
@@ -29,14 +29,16 @@ const AboutSection = () => {
                 My Mission
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Like a skilled pilot navigating through diverse weather conditions, I bring 
-                adaptability, precision, and strategic thinking to every project. My goal is 
-                to help businesses and individuals reach their destinations safely and efficiently.
+                Despite autism spectrum, the aim is to achieve the dream of becoming
+                an airline pilot while leveraging software engineering skills to make
+                a positive impact in the tech world, no matter how long it takes, or
+                whatever it will take.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                With years of experience in the digital landscape, I've learned that success 
-                isn't just about the destination—it's about the journey, the preparation, 
-                and the trust you place in your pilot.
+                With God as my guide, I believe that with passion, perseverance,
+                and a lot of coffee, I can overcome any obstacle and reach for the skies.
+                Furthermore, I aim to use my programming skills to serve God and His people,
+                spreading the Gospel through technology and innovation.
               </p>
             </Card>
 
@@ -48,7 +50,7 @@ const AboutSection = () => {
                 {[
                   { title: "Precision", desc: "Attention to every detail" },
                   { title: "Innovation", desc: "Always pushing boundaries" },
-                  { title: "Reliability", desc: "Consistent excellence" },
+                  { title: "Pain Endurance", desc: "Ability to endure massive hardship" },
                   { title: "Growth", desc: "Continuous improvement" }
                 ].map((value, index) => (
                   <div key={index} className="text-center p-4 rounded-lg bg-secondary/30">
@@ -85,11 +87,14 @@ const AboutSection = () => {
                 </div>
                 <div className="space-y-3">
                   <h4 className="text-2xl font-semibold text-foreground">
-                    Hello, I'm [Your Name]
+                    Hii, I'm Dr. Adriaan M. Dimate, Senior Captain
                   </h4>
+                  <h5 className="text-lg text-accent font-medium">
+                    (just kidding, probbs in the future, soon to be!)
+                  </h5>
                   <p className="text-muted-foreground">
-                    Welcome to my little corner of the internet where I share my journey, 
-                    passions, and the things that make life interesting.
+                    Welcome to my lil corner lolz
+                    Enjoy reading this!
                   </p>
                 </div>
               </div>
@@ -99,7 +104,7 @@ const AboutSection = () => {
             <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
               <div className="text-center space-y-6">
                 <h4 className="text-xl font-semibold text-foreground">
-                  What Makes Me Tick
+                  ihhhhhh a few things about me
                 </h4>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
@@ -109,23 +114,23 @@ const AboutSection = () => {
                   </div>
                   <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
                     <div className="text-2xl mb-2">🎯</div>
-                    <div className="text-sm font-medium text-foreground">Goal-Driven</div>
-                    <div className="text-xs text-muted-foreground">Dream chaser</div>
+                    <div className="text-sm font-medium text-foreground">Militaristic</div>
+                    <div className="text-xs text-muted-foreground">Doesn't care if its impossible or no</div>
                   </div>
                   <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
                     <div className="text-2xl mb-2">🤝</div>
-                    <div className="text-sm font-medium text-foreground">People Person</div>
-                    <div className="text-xs text-muted-foreground">Love connections</div>
+                    <div className="text-sm font-medium text-foreground">Goal-Driven</div>
+                    <div className="text-xs text-muted-foreground">Achieves objectives</div>
                   </div>
                   <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
                     <div className="text-2xl mb-2">✨</div>
-                    <div className="text-sm font-medium text-foreground">Creative Soul</div>
-                    <div className="text-xs text-muted-foreground">Art & beauty</div>
+                    <div className="text-sm font-medium text-foreground">God-powered</div>
+                    <div className="text-xs text-muted-foreground">Guided, armored, victorious.</div>
                   </div>
                 </div>
                 <div className="pt-4 text-center">
                   <p className="text-sm text-muted-foreground italic">
-                    "Life is either a daring adventure or nothing at all." - Helen Keller
+                    "Blessed be the Lord, my rock, who trains my hands for war and my fingers for battle" - Psalm 144:1
                   </p>
                 </div>
               </div>

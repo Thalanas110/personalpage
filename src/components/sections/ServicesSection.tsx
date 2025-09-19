@@ -3,28 +3,34 @@ import { Card } from "@/components/ui/card";
 const InterestsSection = () => {
   const interests = [
     {
-      icon: "📸",
-      title: "Photography",
-      description: "Capturing life's beautiful moments through the lens, from stunning landscapes to candid portraits.",
-      features: ["Travel Photography", "Nature Shots", "Street Photography"]
+      icon: "💻",
+      title: "Programming & QA",
+      description: "Creating and testing software solutions to  solve problems either I or others encounter.",
+      features: ["Quality Assurance", "Software Development", "Problem Solving"]
     },
     {
       icon: "🎵",
-      title: "Music",
-      description: "Finding rhythm and melody in everyday life, whether it's playing instruments or discovering new artists.",
-      features: ["Guitar Playing", "Music Discovery", "Concert Going"]
+      title: "Sleeping & Music",
+      description: "After a long and tiring day, with my low social battery, I obviously would just rather sleep.",
+      features: ["Bedroom sleeping", "Cuddling with my would-be wife", "Soft, mellow, Gospel music"]
     },
     {
       icon: "✈️",
-      title: "Travel & Adventure",
-      description: "Exploring new places, cultures, and experiences that broaden perspectives and create lasting memories.",
-      features: ["City Exploration", "Hiking Trails", "Cultural Experiences"]
+      title: "Airplane Flying & Travelling",
+      description: "As an aspiring pilot, yeah. We all know why. Best office ever to exist, especially during sunset.",
+      features: ["Airports and Airplanes", "Path Planning and Conduct", "Exploring new places"]
     },
     {
       icon: "📚",
-      title: "Learning & Growth",
-      description: "Constantly curious about the world, always seeking new knowledge and skills to expand my horizons.",
+      title: "Reading & Learning",
+      description: "You heard that right, I love reading. Just sad that I don't havve time and a good library to read books from.",
       features: ["Reading Books", "Online Courses", "Skill Building"]
+    },
+        {
+      icon: "✝️",
+      title: "Serving God",
+      description: "I'm a Christian obviously, I don't want my programming skills to go to waste. I want to use it to serve God and His people.",
+      features: ["Media Team", "Church Web Development", "Community Service", "Serving God"]
     }
   ];
 
@@ -33,11 +39,10 @@ const InterestsSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent">
-            My Interests
+            Main Interests lol
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Life is a journey of discovery. Here are the passions and hobbies that fuel my curiosity 
-            and bring joy to my everyday adventures.
+            I'm bored so read this thing hahaha goodluck!
           </p>
         </div>
 
@@ -74,7 +79,7 @@ const InterestsSection = () => {
               <div className="mt-6 pt-6 border-t border-border/30">
                 <div className="text-center">
                   <div className="inline-flex items-center space-x-2 text-accent group-hover:text-sunset-orange transition-colors duration-300">
-                    <span className="font-medium">Explore More</span>
+                    <span className="font-medium">Explore More (to follow)</span>
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>

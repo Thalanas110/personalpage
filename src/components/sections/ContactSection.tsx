@@ -33,26 +33,26 @@ const ContactSection = () => {
     {
       icon: "📧",
       title: "Email",
-      value: "hello@yourname.com",
-      action: "mailto:hello@yourname.com"
+      value: "aadimate55@gmail.com",
+      action: "mailto:aadimate55@gmail.com"
     },
     {
       icon: "📱",
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      action: "tel:+15551234567"
+      value: "+63 943 065 4178 (PH)",
+      action: "tel:+639430654178"
     },
     {
       icon: "📍",
       title: "Location",
-      value: "New York, NY",
+      value: "Olongapo City, Zambales, Philippines 2200",
       action: "#"
     },
     {
       icon: "💼",
       title: "LinkedIn",
       value: "Connect with me",
-      action: "https://linkedin.com/in/yourprofile"
+      action: "tofollow"
     }
   ];
 
