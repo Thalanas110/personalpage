@@ -7,6 +7,13 @@
       "config": { "distDir": "dist" }
     }
   ],
+  "build": {
+    "env": {},
+    "commands": [
+      "npm ci --no-optional",
+      "npm run build"
+    ]
+  },
   "routes": [
     { "src": "/(.*)", "dest": "/$1" }
   ]
