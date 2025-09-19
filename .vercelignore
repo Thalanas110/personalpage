@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+*.log
+*.lock
+scripts
+public/airplane-favicon.svg
+public/placeholder.svg
+README.md
+tsconfig*.json
+**/*.test.*
