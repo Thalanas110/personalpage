@@ -153,7 +153,7 @@ const AboutSection = () => {
                     Hii, I'm Dr. Adriaan M. Dimate, Senior Captain
                   </h4>
                   <h5 className="text-lg text-accent font-medium">
-                    (just kidding, probbs in the future, soon to be!)
+                    (just kidding, probs in the future, soon to be!)
                   </h5>
                   <p className="text-muted-foreground">
                     Welcome to my lil corner lolz.
@@ -202,7 +202,7 @@ const AboutSection = () => {
             {/* Personal Info */}
             <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
               <div className="text-center space-y-6">
-                <h4 className="text-xl font-semibold text-foreground">Personal Info</h4>
+                <h4 className="text-xl font-semibold text-foreground">Some personal info</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { icon: '🧭', title: 'Age', value: `${(() => { const a = calcAgeDetailed(personal.birthDateTime); return `${a.years} yr ${a.months} mo`; })()}` },
