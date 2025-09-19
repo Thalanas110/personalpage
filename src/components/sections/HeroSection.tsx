@@ -24,8 +24,8 @@ const HeroSection = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <div className="animate-float">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent">
+  <div className="animate-float overflow-visible">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent leading-snug md:leading-snug pb-1">
             Welcome Aboard, Passengers!
           </h1>
           <h2 className="text-2xl md:text-4xl font-light text-foreground mb-8">

@@ -59,8 +59,8 @@ const ContactSection = () => {
   return (
     <section id="contact" className="min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent">
+        <div className="text-center mb-16 overflow-visible">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent leading-[1.18] md:leading-[1.12] pb-1">
             Ready for Departure?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
