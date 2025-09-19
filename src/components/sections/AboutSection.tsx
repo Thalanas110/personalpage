@@ -48,10 +48,10 @@ const AboutSection = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  { title: "Precision", desc: "Attention to every detail" },
-                  { title: "Innovation", desc: "Always pushing boundaries" },
-                  { title: "Pain Endurance", desc: "Ability to endure massive hardship" },
-                  { title: "Growth", desc: "Continuous improvement" }
+                  { title: "Precision", desc: "Attention to as much detail as possible" },
+                  { title: "Innovation", desc: "Always pushing  with new things" },
+                  { title: "Pain Perseverance", desc: "Ability to endure massive hardship" },
+                  { title: "Growth", desc: "Continuous Improvement and Development" }
                 ].map((value, index) => (
                   <div key={index} className="text-center p-4 rounded-lg bg-secondary/30">
                     <div className="font-semibold text-foreground">{value.title}</div>
@@ -93,7 +93,7 @@ const AboutSection = () => {
                     (just kidding, probbs in the future, soon to be!)
                   </h5>
                   <p className="text-muted-foreground">
-                    Welcome to my lil corner lolz
+                    Welcome to my lil corner lolz.
                     Enjoy reading this!
                   </p>
                 </div>
@@ -110,7 +110,7 @@ const AboutSection = () => {
                   <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
                     <div className="text-2xl mb-2">🌟</div>
                     <div className="text-sm font-medium text-foreground">Curious Mind</div>
-                    <div className="text-xs text-muted-foreground">Always learning</div>
+                    <div className="text-xs text-muted-foreground">Always learning new stuff</div>
                   </div>
                   <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
                     <div className="text-2xl mb-2">🎯</div>

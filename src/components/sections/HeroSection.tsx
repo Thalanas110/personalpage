@@ -32,8 +32,8 @@ const HeroSection = () => {
             Aspiring Doctorate Airline Pilot & Software Engineer in the making.
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            Navigating the digital skies with precision, creativity, and expertise. 
-            Let's soar to new heights together.
+            Autistic developer who somehow wants to become an airline pilot against all odds.
+            Come on, let's beat the odds!
           </p>
         </div>
         

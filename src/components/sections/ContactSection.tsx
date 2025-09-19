@@ -67,6 +67,9 @@ const ContactSection = () => {
             Let's chart a course together. Whether you have a project in mind or just want to connect, 
             I'm here to help you reach your destination.
           </p>
+          <h3 className="text-lg text-muted-foreground mt-2">
+            (Still under construction tho, so yeahh)
+          </h3>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -173,7 +176,7 @@ const ContactSection = () => {
 
             <Card className="p-8 bg-gradient-aviation backdrop-blur-md border-border/50 shadow-card">
               <h4 className="text-xl font-semibold text-foreground mb-4">
-                Quick Response Guarantee
+                (this is under construction please bear with me, I can't do these just yet lolz)
               </h4>
               <div className="space-y-3 text-muted-foreground">
                 <div className="flex items-center space-x-3">
@@ -195,7 +198,7 @@ const ContactSection = () => {
               <div className="animate-float">
                 <div className="text-4xl mb-3">✈️</div>
                 <p className="text-muted-foreground">
-                  Ready to embark on your next digital adventure?
+                  Lets gooo!
                 </p>
               </div>
             </Card>
