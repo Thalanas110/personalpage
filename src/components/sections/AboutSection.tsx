@@ -219,6 +219,18 @@ const AboutSection = () => {
                     </div>
                   ))}
                 </div>
+                <div className="pt-4">
+                  <Button
+                    variant="outline"
+                    className="group relative overflow-hidden bg-background hover:text-primary-foreground"
+                    onClick={() => window.open('https://moralesbucketlist.netlify.app', '_blank')}
+                  >
+                    <span className="absolute inset-0 bg-primary transition-transform duration-300 transform translate-y-full group-hover:translate-y-0"></span>
+                    <span className="relative z-10 flex items-center gap-2">
+                      🪣 Check out my bucket list!
+                    </span>
+                  </Button>
+                </div>
               </div>
             </Card>
           </div>

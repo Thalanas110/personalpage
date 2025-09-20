@@ -4,6 +4,56 @@
 
 /* Aviation-inspired design system with sunset colors */
 
+@layer utilities {
+  .animate-plane {
+    animation: plane-takeoff 2s infinite;
+  }
+
+  .cloud-particle {
+    @apply absolute w-3 h-3 bg-primary/20 rounded-full;
+    animation: cloud-float 2s infinite;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+@keyframes plane-takeoff {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(0) translateY(-25%) rotate(10deg);
+  }
+  100% {
+    transform: translateX(50%) translateY(-50%) rotate(15deg);
+    opacity: 0;
+  }
+}
+
+@keyframes cloud-float {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-100%) translateY(-100%);
+    opacity: 0;
+  }
+}
+
 @layer base {
   :root {
     --background: 220 20% 5%;
