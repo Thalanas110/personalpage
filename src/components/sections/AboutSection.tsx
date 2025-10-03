@@ -51,8 +51,8 @@ const AboutSection = () => {
     });
   };
   const handlePortfolioClick = () => {
-    // vercel portfolio Q bruh
-    window.open("https://adriaandimate.vercel.app/", "_blank");
+    // reconstructed portfolio
+    window.open("https://adriaansportfolio.netlify.app/", "_blank");
   };
 
   return (
