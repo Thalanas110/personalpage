@@ -19,11 +19,10 @@ const item = {
 };
 
 const AboutSection = () => {
-  // Personal info (adjust values as you like)
+  // Personal info
   const personal = {
-    // Use an ISO datetime so you can include exact birth hour
-    birthDateTime: '2004-09-26T01:40:00', // YYYY-MM-DDTHH:MM:SS (local time)
-    relationship: 'Engaged', // placeholder only                                                                                                     but its actually not a placeholder LOL
+    birthDateTime: '2004-09-26T01:40:00',
+    relationship: 'Engaged',
     sex: 'M',
     religion: 'Born Again Christian',
   };
@@ -47,7 +46,6 @@ const AboutSection = () => {
       days--;
     }
     if (days < 0) {
-      // days in previous month
       const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
       days += prevMonth.getDate();
       months--;
@@ -66,14 +64,17 @@ const AboutSection = () => {
       year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
     });
   };
+
   const handlePortfolioClick = () => {
-    // reconstructed portfolio
     window.open("https://adriaansportfolio.netlify.app/", "_blank");
   };
 
   return (
-    <section id="about" className="min-h-screen py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="min-h-screen py-24 px-6 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-blue/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,12 +82,14 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <div className="inline-flex items-center justify-center p-2 mb-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+            <span className="text-sm font-medium text-muted-foreground px-3">Flight Log: Captain's Profile</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent">
-            About Me
+            About The Captain
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Every aspiring pilot has a story. With God, passion, and perseverance,
-            here's mine.
+          <p className="text-xl text-muted-foreground/80 max-w-3xl mx-auto leading-relaxed font-light">
+            Every flight plan has a story. Driven by faith, fueled by passion, and navigating towards the horizon.
           </p>
         </motion.div>
 
@@ -95,180 +98,144 @@ const AboutSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-12 items-start"
         >
-          {/* Content */}
+          {/* Left Column: Narrative */}
           <div className="space-y-6">
             <motion.div variants={item}>
-              <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-                <h3 className="text-[1.7rem] font-semibold mb-4 text-accent">
-                  Vision
+              <Card className="p-8 bg-white/5 backdrop-blur-md border border-white/10 shadow-card hover:border-accent/30 transition-colors duration-500 rounded-3xl">
+                <h3 className="text-2xl font-semibold mb-4 text-accent flex items-center gap-3">
+                  <span className="text-3xl">🔭</span> Vision
                 </h3>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                <p className="text-lg text-muted-foreground/90 leading-relaxed mb-6 font-light">
                   To be a compassionate and skilled pilot and developer—using technology
-                  not just for innovation, but as a tool to uplift communities, open
-                  opportunities, and restore dignity. I seek to glorify God through every
-                  line of code, every flight, and every act of service, rooted in excellence,
-                  integrity, and a listening heart. Whether in the skies or behind the screen,
-                  I want to be a vessel of hope and purpose—building systems that serve,
-                  platforms that empower, and a legacy that reflects Christ’s love and truth.
+                  not just for innovation, but as a tool to uplift communities. I seek to glorify God through every
+                  line of code and every flight, rooted in excellence and integrity.
                 </p>
               </Card>
             </motion.div>
 
             <motion.div variants={item}>
-              <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-                <h3 className="text-[1.7rem] font-semibold mb-4 text-accent">
-                  My Mission
+              <Card className="p-8 bg-white/5 backdrop-blur-md border border-white/10 shadow-card hover:border-accent/30 transition-colors duration-500 rounded-3xl">
+                <h3 className="text-2xl font-semibold mb-4 text-accent flex items-center gap-3">
+                  <span className="text-3xl">🎯</span> Mission
                 </h3>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Despite autism spectrum, the aim is to achieve the dream of becoming
-                  an airline pilot while leveraging software engineering skills to make
-                  a positive impact in the tech world, no matter how long it takes, or
-                  whatever it will take.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  With God as my guide, I believe that with passion, perseverance,
-                  and a lot of coffee, I can overcome any obstacle and reach for the skies.
-                  Furthermore, I aim to use my programming skills to serve God and His people,
-                  spreading the Gospel through technology and innovation.
+                <p className="text-lg text-muted-foreground/90 leading-relaxed font-light">
+                  Despite the challenges of the spectrum, my mission is to achieve the dream of becoming
+                  an airline pilot while leveraging software engineering making a positive impact.
+                  With God as my guide, passion as my fuel, and perseverance as my wings, I aim to reach the skies.
                 </p>
               </Card>
             </motion.div>
 
             <motion.div variants={item}>
-              <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-                <h3 className="text-[1.7rem] font-semibold mb-4 text-accent">
+              <Card className="p-8 bg-white/5 backdrop-blur-md border border-white/10 shadow-card hover:border-accent/30 transition-colors duration-500 rounded-3xl">
+                <h3 className="text-2xl font-semibold mb-6 text-accent">
                   Core Values
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { title: "Precision", desc: "Attention to as much detail as possible" },
-                    { title: "Innovation", desc: "Always pushing  with new things" },
-                    { title: "Pain Perseverance", desc: "Ability to endure massive hardship" },
-                    { title: "Growth", desc: "Continuous Improvement and Development" }
+                    { title: "Precision", desc: "Attention to detail in code & cockpit." },
+                    { title: "Innovation", desc: "Pushing boundaries with new tech." },
+                    { title: "Perseverance", desc: "Enduring hardship to reach heights." },
+                    { title: "Growth", desc: "Continuous learning and improvement." }
                   ].map((value, index) => (
-                    <div key={index} className="text-center p-4 rounded-lg bg-secondary/30">
-                      <div className="text-base font-semibold text-foreground">{value.title}</div>
-                      <div className="text-[1.05rem] text-muted-foreground">{value.desc}</div>
+                    <div key={index} className="p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors duration-300 border border-white/5">
+                      <div className="text-base font-bold text-foreground mb-1">{value.title}</div>
+                      <div className="text-sm text-muted-foreground font-light">{value.desc}</div>
                     </div>
                   ))}
                 </div>
               </Card>
             </motion.div>
 
-            <motion.div variants={item} className="text-center">
+            <motion.div variants={item} className="text-center md:text-left">
               <Button
                 size="lg"
                 onClick={handlePortfolioClick}
-                className="px-8 py-4 text-lg bg-gradient-aviation hover:shadow-glow transition-all duration-300"
+                className="w-full md:w-auto px-8 py-6 text-lg rounded-full bg-gradient-aviation hover:bg-gradient-to-br hover:from-aviation-blue hover:to-aviation-light shadow-glow transition-all duration-300 transform hover:-translate-y-1"
               >
-                View My Works
+                View My Engineering Logbook 🛠️
               </Button>
             </motion.div>
           </div>
 
-          {/* Personal Image & Info */}
+          {/* Right Column: Personal Info & Photo */}
           <div className="space-y-6">
             {/* Personal Photo */}
             <motion.div variants={item}>
-              <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-                <div className="text-center space-y-6">
-                  <div className="relative w-48 h-48 mx-auto">
-                    <img
-                      src={personalPhoto}
-                      alt="Personal photo"
-                      className="w-full h-full object-cover rounded-full border-4 border-accent shadow-glow"
-                    />
-                    <div className="absolute inset-0 rounded-full bg-gradient-sunset opacity-20 animate-pulse"></div>
+              <div className="relative group">
+                {/* Rotating Ring Effect */}
+                <div className="absolute inset-0 bg-gradient-sunset rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 animate-pulse" />
+
+                <Card className="relative p-8 bg-white/5 backdrop-blur-md border border-white/10 shadow-card overflow-hidden rounded-3xl text-center">
+                  <div className="relative w-56 h-56 mx-auto mb-6">
+                    <div className="absolute inset-0 rounded-full border-2 border-accent/20 animate-spin-slow p-2">
+                      <div className="w-full h-full rounded-full border border-dashed border-accent/40" />
+                    </div>
+                    <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-background shadow-2xl">
+                      <img
+                        src={personalPhoto}
+                        alt="Personal photo"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
                   </div>
-                  <div className="space-y-3">
-                    <h4 className="text-2xl font-semibold text-foreground">
-                      Hii, I'm Dr. Adriaan M. Dimate, Senior Captain
+
+                  <div className="space-y-2">
+                    <h4 className="text-2xl font-bold bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+                      Adriaan M. Dimate
                     </h4>
-                    <h5 className="text-lg text-accent font-medium">
-                      (just kidding, probs in the future, soon to be!)
-                    </h5>
-                    <p className="text-muted-foreground">
-                      Welcome to my lil corner lolz.
-                      Enjoy reading this!
+                    <p className="text-accent font-medium tracking-wide text-sm uppercase">Future Captain & Senior Engineer</p>
+                    <p className="text-muted-foreground/80 text-sm italic mt-4 max-w-sm mx-auto">
+                      "Welcome to my little corner of the internet. Fasten your seatbelts!"
                     </p>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </div>
             </motion.div>
 
-            {/* Personal Highlights */}
+            {/* Stats / Info */}
             <motion.div variants={item}>
-              <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-                <div className="text-center space-y-6">
-                  <h4 className="text-xl font-semibold text-foreground">
-                    ihhhhhh a few things about me
-                  </h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
-                      <div className="text-2xl mb-2">🌟</div>
-                      <div className="text-sm font-medium text-foreground">Curious Mind</div>
-                      <div className="text-xs text-muted-foreground">Always learning new stuff</div>
-                    </div>
-                    <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
-                      <div className="text-2xl mb-2">🎯</div>
-                      <div className="text-sm font-medium text-foreground">Militaristic</div>
-                      <div className="text-xs text-muted-foreground">Doesn't care if its impossible or no</div>
-                    </div>
-                    <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
-                      <div className="text-2xl mb-2">🤝</div>
-                      <div className="text-sm font-medium text-foreground">Goal-Driven</div>
-                      <div className="text-xs text-muted-foreground">Achieves objectives</div>
-                    </div>
-                    <div className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300">
-                      <div className="text-2xl mb-2">✨</div>
-                      <div className="text-sm font-medium text-foreground">God-powered</div>
-                      <div className="text-xs text-muted-foreground">Guided, armored, victorious.</div>
-                    </div>
-                  </div>
-                  <div className="pt-4 text-center">
-                    <p className="text-sm text-muted-foreground italic">
-                      "Blessed be the Lord, my rock, who trains my hands for war and my fingers for battle" - Psalm 144:1
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
+              <Card className="p-8 bg-white/5 backdrop-blur-md border border-white/10 shadow-card rounded-3xl">
+                <h4 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+                  <span className="w-2 h-6 bg-accent rounded-full" /> Personal Manifest
+                </h4>
 
-            {/* Personal Info */}
-            <motion.div variants={item}>
-              <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-                <div className="text-center space-y-6">
-                  <h4 className="text-xl font-semibold text-foreground">Some personal info</h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    {[
-                      { icon: '🧭', title: 'Age', value: `${(() => { const a = calcAgeDetailed(personal.birthDateTime); return `${a.years} yr ${a.months} mo`; })()}` },
-                      { icon: '🎂', title: 'Birthday', value: formatBirthday(personal.birthDateTime) },
-                      { icon: '❤️', title: 'Relationship', value: personal.relationship },
-                      { icon: '⚧', title: 'Sex', value: personal.sex },
-                      { icon: '✝️', title: 'Religion', value: personal.religion },
-                      { icon: '📚', title: 'Studying?', value: 'Yes' },
-                    ].map((item, idx) => (
-                      <div key={idx} className="p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300 text-left">
-                        <div className="text-2xl mb-2">{item.icon}</div>
-                        <div className="text-sm font-medium text-foreground">{item.title}</div>
-                        <div className="text-xs text-muted-foreground">{item.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="pt-4">
-                    <Button
-                      variant="outline"
-                      className="group relative overflow-hidden bg-background hover:text-primary-foreground"
-                      onClick={() => window.open('https://moralesbucketlist.netlify.app', '_blank')}
-                    >
-                      <span className="absolute inset-0 bg-primary transition-transform duration-300 transform translate-y-full group-hover:translate-y-0"></span>
-                      <span className="relative z-10 flex items-center gap-2">
-                        🪣 Check out my bucket list!
-                      </span>
-                    </Button>
-                  </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { icon: '🧭', title: 'Age', value: `${(() => { const a = calcAgeDetailed(personal.birthDateTime); return `${a.years}y ${a.months}m`; })()}` },
+                    { icon: '🎂', title: 'Birthday', value: formatBirthday(personal.birthDateTime) },
+                    { icon: '❤️', title: 'Status', value: personal.relationship },
+                    { icon: '⚧', title: 'Sex', value: personal.sex },
+                    { icon: '✝️', title: 'Religion', value: personal.religion },
+                    { icon: '🎓', title: 'Student', value: 'Yes' },
+                  ].map((item, idx) => (
+                    <div key={idx} className="p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                      <div className="text-xl mb-1 opacity-80">{item.icon}</div>
+                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{item.title}</div>
+                      <div className="text-sm font-medium text-foreground truncate">{item.value}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-white/10">
+                  <p className="text-sm text-center text-muted-foreground italic font-light">
+                    "Blessed be the Lord, my rock, who trains my hands for war and my fingers for battle" <br />- Psalm 144:1
+                  </p>
+                </div>
+
+                <div className="mt-6">
+                  <Button
+                    variant="outline"
+                    className="w-full py-6 bg-transparent border-white/10 text-muted-foreground hover:text-foreground hover:bg-white/5 hover:border-accent/50 transition-all duration-300 group overflow-hidden relative"
+                    onClick={() => window.open('https://moralesbucketlist.netlify.app', '_blank')}
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      My Bucket List 🪣
+                    </span>
+                    <div className="absolute inset-0 bg-accent/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                  </Button>
                 </div>
               </Card>
             </motion.div>

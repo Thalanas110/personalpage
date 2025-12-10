@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavigationProps {
   activeSection: string;
@@ -8,7 +9,17 @@ interface NavigationProps {
 
 const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect for pill background opacity
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const sections = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -17,33 +28,53 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-gradient-glass border-b border-border/50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <>
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={`fixed top-4 z-50 rounded-full border transition-all duration-300 
+          left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-full md:max-w-5xl
+          ${scrolled
+            ? "bg-background/80 backdrop-blur-xl border-white/10 shadow-lg"
+            : "bg-background/50 backdrop-blur-md border-white/5"
+          }`}
+      >
+        <div className="px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="text-2xl font-bold bg-gradient-sunset bg-clip-text text-transparent">
-              Adriaan's Personal Life
-            </div>
+          <div
+            className="flex items-center cursor-pointer group"
+            onClick={() => onSectionChange("home")}
+          >
+            <span className="text-2xl mr-2 group-hover:-rotate-12 transition-transform duration-300">✈️</span>
+            <span className="text-xl font-bold bg-gradient-sunset bg-clip-text text-transparent font-heading tracking-tight">
+              Adriaan
+            </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center gap-1">
             {sections.map((section) => (
-              <Button
+              <button
                 key={section.id}
-                variant={activeSection === section.id ? "default" : "ghost"}
                 onClick={() => onSectionChange(section.id)}
                 className={`
-                  px-6 py-2 transition-all duration-300 
-                  ${activeSection === section.id 
-                    ? "bg-gradient-sunset text-aviation-blue shadow-glow" 
-                    : "text-foreground hover:text-accent hover:bg-secondary/50"
+                  relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
+                  ${activeSection === section.id
+                    ? "text-white"
+                    : "text-muted-foreground hover:text-white hover:bg-white/5"
                   }
                 `}
               >
+                {activeSection === section.id && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-sunset rounded-full -z-10 shadow-glow"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
                 {section.label}
-              </Button>
+              </button>
             ))}
           </div>
 
@@ -51,9 +82,9 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
           <div className="md:hidden">
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground"
+              className="text-foreground hover:bg-white/10 rounded-full"
             >
               <svg
                 className="w-6 h-6"
@@ -73,35 +104,65 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
             </Button>
           </div>
         </div>
+      </motion.nav>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
         {isMenuOpen && (
-          <div className="md:hidden bg-card/90 backdrop-blur-md border-t border-border/50">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {sections.map((section) => (
-                <Button
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-3xl pt-24 px-6 flex flex-col items-center justify-start gap-8"
+          >
+            <div className="flex flex-col items-center w-full gap-4">
+              {sections.map((section, idx) => (
+                <motion.button
                   key={section.id}
-                  variant={activeSection === section.id ? "default" : "ghost"}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + idx * 0.1 }}
                   onClick={() => {
                     onSectionChange(section.id);
                     setIsMenuOpen(false);
                   }}
                   className={`
-                    w-full justify-start transition-all duration-300
-                    ${activeSection === section.id 
-                      ? "bg-gradient-sunset text-aviation-blue" 
-                      : "text-foreground hover:text-accent"
+                    w-full py-4 text-2xl font-bold transition-all duration-300 flex items-center justify-center gap-3
+                    ${activeSection === section.id
+                      ? "text-primary scale-110"
+                      : "text-muted-foreground hover:text-foreground"
                     }
                   `}
                 >
                   {section.label}
-                </Button>
+                  {activeSection === section.id && (
+                    <motion.span
+                      layoutId="mobileActive"
+                      className="text-2xl"
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      ✈️
+                    </motion.span>
+                  )}
+                </motion.button>
               ))}
             </div>
-          </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-auto mb-10 text-center"
+            >
+              <p className="text-sm text-muted-foreground font-light tracking-widest uppercase">
+                Adriaan's Flight Deck
+              </p>
+            </motion.div>
+          </motion.div>
         )}
-      </div>
-    </nav>
+      </AnimatePresence>
+    </>
   );
 };
 

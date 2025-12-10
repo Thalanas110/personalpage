@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -21,10 +22,10 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission is under construction. This should come as a form of email being sent to me lolz
     toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
+      title: "Message System Offline",
+      description: "This frequency is currently silent. Please use the direct contact methods on the right!",
+      variant: "destructive"
     });
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
@@ -39,133 +40,142 @@ const ContactSection = () => {
     {
       icon: "📱",
       title: "Phone",
-      value: "+63 943 065 4178 (PH)",
+      value: "+63 943 065 4178",
       action: "tel:+639430654178"
     },
     {
       icon: "📍",
-      title: "Location",
-      value: "Olongapo City, Zambales, Philippines 2200",
+      title: "Base",
+      value: "Olongapo City, Zambales",
       action: "#"
-    },
-    {
-      icon: "💼",
-      title: "LinkedIn",
-      value: "Connect with me",
-      action: "tofollow"
     }
   ];
 
   return (
-    <section id="contact" className="min-h-screen py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 overflow-visible">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent leading-[1.18] md:leading-[1.12] pb-1">
-            Ready for Departure?
+    <section id="contact" className="min-h-screen py-24 px-6 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-accent/10 to-transparent blur-3xl pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-sunset bg-clip-text text-transparent">
+            Request Clearance
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Let's chart a course together. Whether you have a project in mind or just want to connect, 
-            I'm here to help you reach your destination.
+          <p className="text-xl text-muted-foreground/80 max-w-2xl mx-auto font-light">
+            Ready to collaborate? Establish radio contact below.
           </p>
-          <h3 className="text-lg text-muted-foreground mt-2">
-            (Still under construction tho, so yeahh)
-          </h3>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-            <h3 className="text-2xl font-semibold text-foreground mb-6">
-              Send a Message (Currently not working, under construction. Just use the details at the right side)
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Name
-                  </label>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <Card className="p-8 bg-white/5 backdrop-blur-md border border-white/10 shadow-card rounded-3xl h-full">
+              <div className="mb-6 flex justify-between items-center">
+                <h3 className="text-2xl font-semibold text-foreground">
+                  Flight Plan (Message)
+                </h3>
+                <span className="px-3 py-1 bg-red-500/10 text-red-500 text-xs rounded-full border border-red-500/20 animate-pulse">
+                  Radio Silence
+                </span>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground/80 pl-1">Name</label>
+                    <Input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Captain Name"
+                      className="bg-white/5 border-white/10 focus:border-accent text-foreground placeholder:text-muted-foreground/30 h-12 rounded-xl"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground/80 pl-1">Email Coordinates</label>
+                    <Input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="pilot@airline.com"
+                      className="bg-white/5 border-white/10 focus:border-accent text-foreground placeholder:text-muted-foreground/30 h-12 rounded-xl"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground/80 pl-1">Subject</label>
                   <Input
-                    name="name"
-                    value={formData.name}
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleInputChange}
-                    placeholder="Your name"
-                    required
-                    className="bg-secondary/50 border-border/50 focus:border-accent"
+                    placeholder="Briefing Topic"
+                    className="bg-white/5 border-white/10 focus:border-accent text-foreground placeholder:text-muted-foreground/30 h-12 rounded-xl"
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Email
-                  </label>
-                  <Input
-                    name="email"
-                    type="email"
-                    value={formData.email}
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground/80 pl-1">Message</label>
+                  <Textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="your@email.com"
-                    required
-                    className="bg-secondary/50 border-border/50 focus:border-accent"
+                    placeholder="Enter flight details..."
+                    rows={6}
+                    className="bg-white/5 border-white/10 focus:border-accent text-foreground placeholder:text-muted-foreground/30 rounded-xl resize-none"
                   />
                 </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Subject
-                </label>
-                <Input
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  placeholder="Project inquiry"
-                  required
-                  className="bg-secondary/50 border-border/50 focus:border-accent"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
-                <Textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Tell me about your project..."
-                  rows={6}
-                  required
-                  className="bg-secondary/50 border-border/50 focus:border-accent resize-none"
-                />
-              </div>
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-gradient-sunset hover:shadow-glow transition-all duration-300"
-              >
-                Launch Message 🚀
-              </Button>
-            </form>
-          </Card>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full h-12 text-lg bg-gradient-sunset hover:shadow-glow transition-all duration-300 rounded-xl"
+                >
+                  Transmit Message 📡
+                </Button>
+              </form>
+            </Card>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="space-y-6">
-            <Card className="p-8 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card">
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
-                Get In Touch
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="space-y-6"
+          >
+            <Card className="p-8 bg-gradient-aviation backdrop-blur-md border border-white/10 shadow-card rounded-3xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-colors" />
+              <h3 className="text-2xl font-semibold text-foreground mb-8 relative z-10">
+                Direct Channels
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-4 relative z-10">
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}
                     href={info.action}
                     target={info.action.startsWith('http') ? '_blank' : undefined}
                     rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="flex items-center space-x-4 p-4 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-all duration-300 group cursor-pointer"
+                    className="flex items-center space-x-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 group cursor-pointer"
                   >
-                    <div className="text-2xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-full bg-background/30 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       {info.icon}
                     </div>
                     <div>
-                      <div className="font-medium text-foreground">{info.title}</div>
-                      <div className="text-muted-foreground group-hover:text-accent transition-colors duration-300">
+                      <div className="text-sm font-medium text-muted-foreground">{info.title}</div>
+                      <div className="text-lg font-medium text-foreground group-hover:text-accent transition-colors duration-300">
                         {info.value}
                       </div>
                     </div>
@@ -174,35 +184,18 @@ const ContactSection = () => {
               </div>
             </Card>
 
-            <Card className="p-8 bg-gradient-aviation backdrop-blur-md border-border/50 shadow-card">
-              <h4 className="text-xl font-semibold text-foreground mb-4">
-                (this is under construction please bear with me, I can't do these just yet lolz)
-              </h4>
-              <div className="space-y-3 text-muted-foreground">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span>Response within 24 hours</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span>Free initial consultation</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span>Flexible scheduling</span>
+            <Card className="p-8 bg-white/5 backdrop-blur-md border border-white/10 shadow-card rounded-3xl text-center">
+              <div className="flex flex-col items-center gap-4">
+                <div className="animate-float text-6xl">🛫</div>
+                <div>
+                  <h4 className="text-xl font-bold bg-gradient-sunset bg-clip-text text-transparent">Thank you for visiting!</h4>
+                  <p className="text-muted-foreground mt-2 font-light">
+                    "May your skies be clear and your code be bug-free."
+                  </p>
                 </div>
               </div>
             </Card>
-
-            <Card className="p-6 bg-gradient-glass backdrop-blur-md border-border/50 shadow-card text-center">
-              <div className="animate-float">
-                <div className="text-4xl mb-3">✈️</div>
-                <p className="text-muted-foreground">
-                  Lets gooo!
-                </p>
-              </div>
-            </Card>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
