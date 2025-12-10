@@ -22,13 +22,22 @@ const InterestsSection = () => {
       icon: "💻",
       title: "Programming & QA",
       description: "Creating and testing software solutions to  solve problems either I or others encounter.",
-      features: ["Quality Assurance", "Software Development", "Problem Solving"]
+      features: ["Quality Assurance", "Software Development", "Problem Solving"],
+      link: "https://adriaansportfolio.netlify.app/"
+    },
+    {
+      icon: "✝️",
+      title: "Serving God",
+      description: "I'm a Christian obviously, I don't want my programming skills to go to waste. I want to use it to serve God and His people.",
+      features: ["Media Team", "Church Web Development", "Community Service", "Serving God"],
+      link: "https://adriaansdevotions.netlify.app/"
     },
     {
       icon: "🎵",
       title: "Sleeping & Music",
       description: "After a long and tiring day, with my low social battery, I obviously would just rather sleep.",
-      features: ["Bedroom sleeping", "Cuddling with my would-be wife", "Soft, mellow, Gospel music"]
+      features: ["Bedroom sleeping", "Cuddling with my would-be wife", "Soft, mellow, Gospel music"],
+      link: "https://open.spotify.com/user/31kuops4bkgxnoltca7ksgtfyxgu?si=bb4f4f0cf156416a"
     },
     {
       icon: "✈️",
@@ -41,12 +50,6 @@ const InterestsSection = () => {
       title: "Reading & Learning",
       description: "You heard that right, I love reading. Just sad that I don't havve time and a good library to read books from.",
       features: ["Reading Books", "Online Courses", "Skill Building"]
-    },
-    {
-      icon: "✝️",
-      title: "Serving God",
-      description: "I'm a Christian obviously, I don't want my programming skills to go to waste. I want to use it to serve God and His people.",
-      features: ["Media Team", "Church Web Development", "Community Service", "Serving God"]
     }
   ];
 
@@ -106,12 +109,26 @@ const InterestsSection = () => {
 
                 <div className="mt-6 pt-6 border-t border-border/30">
                   <div className="text-center">
-                    <div className="inline-flex items-center space-x-2 text-accent group-hover:text-sunset-orange transition-colors duration-300">
-                      <span className="font-medium">Explore More (to follow)</span>
-                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
+                    {interest.link ? (
+                      <a
+                        href={interest.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-2 text-accent group-hover:text-sunset-orange transition-colors duration-300 cursor-pointer"
+                      >
+                        <span className="font-medium">Explore More</span>
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    ) : (
+                      <div className="inline-flex items-center space-x-2 text-accent group-hover:text-sunset-orange transition-colors duration-300">
+                        <span className="font-medium">Explore More (to follow)</span>
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    )}
                   </div>
                 </div>
               </Card>
