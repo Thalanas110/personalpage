@@ -54,7 +54,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="min-h-screen py-24 px-6 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-accent/10 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[200px] h-[200px] md:w-[500px] md:h-[500px] bg-gradient-radial from-accent/10 to-transparent blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
@@ -71,7 +71,7 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-6">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

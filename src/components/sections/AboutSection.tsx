@@ -72,7 +72,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="min-h-screen py-24 px-6 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-blue/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-sky-blue/5 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -98,7 +98,7 @@ const AboutSection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid lg:grid-cols-2 gap-12 items-start"
+          className="grid lg:grid-cols-2 gap-6 items-start"
         >
           {/* Left Column: Narrative */}
           <div className="space-y-6">
